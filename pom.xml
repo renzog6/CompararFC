@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <name>CompararFC</name>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ar.nex</groupId>
+    <artifactId>CompararFC</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <mainClass>ar.nex.factura.MainApp</mainClass>         
+    </properties>
+
+    <organization>
+        <!-- Used as the 'Vendor' for JNLP generation -->
+        <name>Zero6</name>
+    </organization>
+
+    <build>       
+        <finalName>CompararFC</finalName>
+        <plugins>
+            <plugin>
+                <groupId>com.zenjava</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>8.1.5</version>
+                <configuration>                
+                    <!-- only required if signing the jar file -->
+                    <vendor>Zero6</vendor>
+                    <mainClass> ar.nex.factura.MainApp</mainClass>                    
+                    <title>CompararFC</title>
+                    <keyStoreAlias>renzokey</keyStoreAlias>
+                    <keyStorePassword>renzokey</keyStorePassword>
+                    <allPermissions>true</allPermissions>
+                    <overwriteKeyStore>true</overwriteKeyStore>
+                    <certDomain>VM</certDomain>
+                    <certState>SF</certState>
+                    <certCountry>AR</certCountry>
+                    
+                    <certOrg>Zero6</certOrg>
+                    <certOrgUnit>Zero6</certOrgUnit>
+                    <bundleArguments>
+                        <jnlp.includeDT>true</jnlp.includeDT>
+                        <jnlp.outfile>CompararFC</jnlp.outfile>
+                    </bundleArguments>
+        
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+    <dependencies>    
+        <!-- MigLayout X -->
+        <dependency>
+            <groupId>com.miglayout</groupId>
+            <artifactId>miglayout-javafx</artifactId>
+            <version>5.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>4.1</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>javax.persistence</artifactId>
+            <version>2.1.0</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>5.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.0.0</version>
+        </dependency>
+
+    </dependencies>
+    
+</project>
